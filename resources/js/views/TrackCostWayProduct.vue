@@ -1,7 +1,7 @@
 <template>
   <div class="flex overflow-hidden bg-cool-gray-100">
       <main class="flex-1 relative pb-8 z-0 overflow-y-auto">
-        <div class="mt-8 mx-8">
+        <div class="mt-2 mx-6">
           <div
             class="bg-white shadow overflow-hidden sm:rounded-lg m-auto w-full "
           >
@@ -19,6 +19,12 @@
 
             <div class="px-4 py-5 border-b border-gray-200 sm:px-6">
               <h3 class="text-lg leading-6 font-medium text-gray-900">Product Information</h3>
+               <button v-if="!_.isEmpty(product)" type="button" @click="trackProduct" class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
+                <svg class="-ml-1 mr-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                </svg>
+                <span>Track</span>
+              </button>
               <p
                 class="mt-1 max-w-2xl text-sm leading-5 text-gray-500"
               v-text="product.productSlug"></p>

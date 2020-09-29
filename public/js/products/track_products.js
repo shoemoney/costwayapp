@@ -204,6 +204,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -484,6 +490,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -501,15 +513,15 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     productDetails: function productDetails(product) {
       bus.$emit("product", product);
+    },
+    openTrackProductModal: function openTrackProductModal() {
+      this.$modal.show("track-product-modal");
     }
   },
   computed: {
     products: function products() {
       return this.getProducts;
     }
-  },
-  mounted: function mounted() {
-    this.$modal.show("track-product-modal");
   }
 });
 
@@ -549,7 +561,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "flex overflow-hidden bg-cool-gray-100" }, [
     _c("main", { staticClass: "flex-1 relative pb-8 z-0 overflow-y-auto" }, [
-      _c("div", { staticClass: "mt-8 mx-8" }, [
+      _c("div", { staticClass: "mt-2 mx-6" }, [
         _c(
           "div",
           {
@@ -607,6 +619,42 @@ var render = function() {
                   },
                   [_vm._v("Product Information")]
                 ),
+                _vm._v(" "),
+                !_vm._.isEmpty(_vm.product)
+                  ? _c(
+                      "button",
+                      {
+                        staticClass:
+                          "relative inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150",
+                        attrs: { type: "button" },
+                        on: { click: _vm.trackProduct }
+                      },
+                      [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "-ml-1 mr-2 h-5 w-5",
+                            attrs: {
+                              viewBox: "0 0 20 20",
+                              fill: "currentColor"
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                "fill-rule": "evenodd",
+                                d:
+                                  "M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z",
+                                "clip-rule": "evenodd"
+                              }
+                            })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("span", [_vm._v("Track")])
+                      ]
+                    )
+                  : _vm._e(),
                 _vm._v(" "),
                 _c("p", {
                   staticClass: "mt-1 max-w-2xl text-sm leading-5 text-gray-500",
@@ -951,6 +999,40 @@ var render = function() {
                           "text-lg leading-6 font-medium text-cool-gray-900"
                       },
                       [_vm._v("Overview")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass:
+                          "relative inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150",
+                        attrs: { type: "button" },
+                        on: { click: _vm.openTrackProductModal }
+                      },
+                      [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "-ml-1 mr-2 h-5 w-5",
+                            attrs: {
+                              viewBox: "0 0 20 20",
+                              fill: "currentColor"
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                "fill-rule": "evenodd",
+                                d:
+                                  "M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z",
+                                "clip-rule": "evenodd"
+                              }
+                            })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("span", [_vm._v("Track Product")])
+                      ]
                     ),
                     _vm._v(" "),
                     _c(
@@ -1969,7 +2051,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/jjordan/web/costwayapp/resources/js/products/track_products.js */"./resources/js/products/track_products.js");
+module.exports = __webpack_require__(/*! /Users/joshuacallis/web/costwayapp/resources/js/products/track_products.js */"./resources/js/products/track_products.js");
 
 
 /***/ })
