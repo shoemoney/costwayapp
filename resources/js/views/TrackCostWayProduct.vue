@@ -1,7 +1,7 @@
 <template>
   <div class="flex overflow-hidden bg-cool-gray-100">
       <main class="flex-1 relative pb-8 z-0 overflow-y-auto">
-        <div class="mt-2 mx-6">
+        <div class="mt-6 mx-6">
           <div
             class="bg-white shadow overflow-hidden sm:rounded-lg m-auto w-full "
           >

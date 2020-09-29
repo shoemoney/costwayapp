@@ -3,7 +3,7 @@
   <modal
     name="track-product-modal" 
     :width="1100"
-    :height="600"
+    :height="525"
     transition="pop-out"
     class="flex justify-center absolute overflow-y-scroll"
   >

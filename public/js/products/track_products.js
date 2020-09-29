@@ -561,7 +561,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "flex overflow-hidden bg-cool-gray-100" }, [
     _c("main", { staticClass: "flex-1 relative pb-8 z-0 overflow-y-auto" }, [
-      _c("div", { staticClass: "mt-2 mx-6" }, [
+      _c("div", { staticClass: "mt-6 mx-6" }, [
         _c(
           "div",
           {
@@ -969,7 +969,7 @@ var render = function() {
           attrs: {
             name: "track-product-modal",
             width: 1100,
-            height: 600,
+            height: 525,
             transition: "pop-out"
           }
         },
