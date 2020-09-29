@@ -574,7 +574,7 @@ var render = function() {
                 "span",
                 {
                   staticClass:
-                    "p-3 inline-flex items-center px-3 rounded-none border-solid border-l-2  border-t-2 border-r-0  border-b-2 border-gray-600 text-gray-500 sm:text-sm"
+                    "p-3 inline-flex items-center px-3 rounded-none border-solid text-gray-500 sm:text-sm"
                 },
                 [_vm._v("\n            https://costway.co.uk/\n          ")]
               ),
@@ -589,7 +589,7 @@ var render = function() {
                   }
                 ],
                 staticClass:
-                  "flex-1 form-input block w-full min-w-0 border-solid rounded-none border-l-0  border-t-2 border-r-2 border-b-2  border-gray-600 sm:text-sm sm:leading-5",
+                  "flex-1 form-input block w-full min-w-0 border-solid rounded-none sm:text-sm sm:leading-5",
                 attrs: {
                   id: "search",
                   placeholder:

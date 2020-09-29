@@ -6,12 +6,12 @@
             class="bg-white shadow overflow-hidden sm:rounded-lg m-auto w-full "
           >
             <div class="w-full flex rounded-md shadow-sm">
-            <span class="p-3 inline-flex items-center px-3 rounded-none border-solid border-l-2  border-t-2 border-r-0  border-b-2 border-gray-600 text-gray-500 sm:text-sm">
+            <span class="p-3 inline-flex items-center px-3 rounded-none border-solid text-gray-500 sm:text-sm">
               https://costway.co.uk/
             </span>
             <input 
               id="search" 
-              class="flex-1 form-input block w-full min-w-0 border-solid rounded-none border-l-0  border-t-2 border-r-2 border-b-2  border-gray-600 sm:text-sm sm:leading-5"
+              class="flex-1 form-input block w-full min-w-0 border-solid rounded-none sm:text-sm sm:leading-5"
               v-model="productSlug"
               v-on:keyup="productDetails"
               placeholder="2500w-oil-filled-electric-timer-thermostat-11-fin-heater">
