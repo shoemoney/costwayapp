@@ -960,12 +960,12 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "h-screen flex overflow-hidden bg-cool-gray-100" },
+    { staticClass: "flex overflow-hidden" },
     [
       _c(
         "modal",
         {
-          staticClass: "flex justify-center absolute",
+          staticClass: "flex justify-center absolute overflow-y-scroll",
           attrs: {
             name: "track-product-modal",
             width: 1100,

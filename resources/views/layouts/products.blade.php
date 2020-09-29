@@ -1,6 +1,6 @@
 
 <div id="products">
- <main class="flex h-screen">
+ <main class="flex">
     <section class="w-full text-sm">
         <div class="flex justify-between">
             <div class="w-1/4 bg-white shadow px-6 bg-gray-200 text-gray-800">

@@ -10,9 +10,9 @@
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     @show
 </head>
-<body>
+<body class="bg-gray-100">
 
-    <div class="h-screen flex overflow-hidden bg-gray-100" x-data="{ sidebarOpen: false }" @keydown.window.escape="sidebarOpen = false">
+    <div class="flex overflow-hidden bg-gray-100" x-data="{ sidebarOpen: false }" @keydown.window.escape="sidebarOpen = false">
         @yield('content')
     </div>
 

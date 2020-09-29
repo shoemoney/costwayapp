@@ -1,11 +1,11 @@
 <template>
-<div class="h-screen flex overflow-hidden bg-cool-gray-100">
+<div class="flex overflow-hidden">
   <modal
     name="track-product-modal" 
     :width="1100"
     :height="600"
     transition="pop-out"
-    class="flex justify-center absolute"
+    class="flex justify-center absolute overflow-y-scroll"
   >
     <div>
       <track-cost-way-product></track-cost-way-product>
