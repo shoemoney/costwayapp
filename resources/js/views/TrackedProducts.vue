@@ -5,7 +5,7 @@
     :width="1100"
     :height="525"
     transition="pop-out"
-    class="flex justify-center absolute overflow-y-scroll"
+    class="flex justify-center absolute"
   >
     <div>
       <track-cost-way-product></track-cost-way-product>
