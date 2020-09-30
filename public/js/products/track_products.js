@@ -496,6 +496,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -1308,8 +1316,8 @@ var render = function() {
                       staticClass:
                         "mt-2 divide-y divide-cool-gray-200 overflow-hidden shadow sm:hidden"
                     },
-                    [
-                      _c("li", [
+                    _vm._l(_vm.products, function(tracked) {
+                      return _c("li", [
                         _c(
                           "a",
                           {
@@ -1351,7 +1359,73 @@ var render = function() {
                                       ]
                                     ),
                                     _vm._v(" "),
-                                    _vm._m(0)
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "text-cool-gray-500 text-sm truncate"
+                                      },
+                                      [
+                                        _c("p", {
+                                          staticClass: "truncate",
+                                          domProps: {
+                                            textContent: _vm._s(
+                                              tracked.product[0].name
+                                            )
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c("p", [
+                                          _c("span", {
+                                            staticClass:
+                                              "text-cool-gray-900 font-medium",
+                                            domProps: {
+                                              textContent: _vm._s(
+                                                tracked.product[0].price
+                                              )
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("span", {
+                                            domProps: {
+                                              textContent: _vm._s(
+                                                tracked.product[0].currency
+                                              )
+                                            }
+                                          })
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("p", [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-green-100 text-green-800 capitalize"
+                                            },
+                                            [
+                                              _c("span", {
+                                                domProps: {
+                                                  textContent: _vm._s(
+                                                    tracked.product[0]
+                                                      .metrics[0]["value"]
+                                                  )
+                                                }
+                                              })
+                                            ]
+                                          )
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("p", {
+                                          staticClass:
+                                            "text-sm leading-5 text-cool-gray-500",
+                                          domProps: {
+                                            textContent: _vm._s(
+                                              tracked.product[0].updated_at
+                                            )
+                                          }
+                                        })
+                                      ]
+                                    )
                                   ]
                                 ),
                                 _vm._v(" "),
@@ -1383,10 +1457,57 @@ var render = function() {
                           ]
                         )
                       ])
-                    ]
+                    }),
+                    0
                   ),
                   _vm._v(" "),
-                  _vm._m(1)
+                  _c(
+                    "nav",
+                    {
+                      staticClass:
+                        "bg-white px-4 py-3 flex items-center justify-between border-t border-cool-gray-200"
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "flex-1 flex justify-between" },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "relative inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700 transition ease-in-out duration-150",
+                              class: {
+                                "opacity-50 cursor-not-allowed": _vm.page <= 1
+                              },
+                              attrs: { disabled: _vm.page <= 1 },
+                              on: { click: _vm.previousPage }
+                            },
+                            [
+                              _vm._v(
+                                "\n                Previous\n              "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "ml-3 relative inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700 transition ease-in-out duration-150",
+                              class: {
+                                "opacity-50 cursor-not-allowed":
+                                  _vm.totalTracked < _vm.limit
+                              },
+                              attrs: { disabled: _vm.totalTracked < _vm.limit },
+                              on: { click: _vm.nextPage }
+                            },
+                            [_vm._v("\n                Next\n              ")]
+                          )
+                        ]
+                      )
+                    ]
+                  )
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "hidden sm:block" }, [
@@ -1409,7 +1530,7 @@ var render = function() {
                                   "min-w-full divide-y divide-cool-gray-200"
                               },
                               [
-                                _vm._m(2),
+                                _vm._m(0),
                                 _vm._v(" "),
                                 _c(
                                   "tbody",
@@ -1674,60 +1795,6 @@ var render = function() {
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-cool-gray-500 text-sm truncate" }, [
-      _c("p", { staticClass: "truncate" }, [
-        _vm._v("Payment to Molly Sanders")
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _c("span", { staticClass: "text-cool-gray-900 font-medium" }, [
-          _vm._v("$20,000")
-        ]),
-        _vm._v(" USD")
-      ]),
-      _vm._v(" "),
-      _c("p", [_vm._v("July 11, 2020")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "nav",
-      {
-        staticClass:
-          "bg-white px-4 py-3 flex items-center justify-between border-t border-cool-gray-200"
-      },
-      [
-        _c("div", { staticClass: "flex-1 flex justify-between" }, [
-          _c(
-            "a",
-            {
-              staticClass:
-                "relative inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700 transition ease-in-out duration-150",
-              attrs: { href: "track/products?page=1" }
-            },
-            [_vm._v("\n                Previous\n              ")]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass:
-                "ml-3 relative inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700 transition ease-in-out duration-150",
-              attrs: { href: "track/products?page=1" }
-            },
-            [_vm._v("\n                Next\n              ")]
-          )
-        ])
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

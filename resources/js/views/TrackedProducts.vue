@@ -104,7 +104,7 @@
         <!-- Activity list (smallest breakopoint only) -->
         <div class="shadow sm:hidden">
           <ul class="mt-2 divide-y divide-cool-gray-200 overflow-hidden shadow sm:hidden">
-            <li>
+            <li v-for="tracked in products">
               <a href="#" class="block px-4 py-4 bg-white hover:bg-cool-gray-50">
                 <div class="flex items-center space-x-4">
                   <div class="flex-1 flex space-x-2 truncate">
@@ -112,9 +112,17 @@
                       <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
                     </svg>
                     <div class="text-cool-gray-500 text-sm truncate">
-                      <p class="truncate">Payment to Molly Sanders</p>
-                      <p><span class="text-cool-gray-900 font-medium">$20,000</span> USD</p>
-                      <p>July 11, 2020</p>
+                      <p class="truncate" v-text="tracked.product[0].name"></p>
+                      <p> 
+                        <span class="text-cool-gray-900 font-medium" v-text="tracked.product[0].price"></span>
+                        <span v-text="tracked.product[0].currency"></span>
+                      </p>
+                      <p>
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-green-100 text-green-800 capitalize">
+                          <span v-text="tracked.product[0].metrics[0]['value']"></span>
+                        </span>
+                      </p>
+                      <p class="text-sm leading-5 text-cool-gray-500" v-text="tracked.product[0].updated_at"></p>
                     </div>
                   </div>
                   <div>
@@ -130,12 +138,12 @@
           </ul>
           <nav class="bg-white px-4 py-3 flex items-center justify-between border-t border-cool-gray-200">
             <div class="flex-1 flex justify-between">
-              <a href="track/products?page=1" class="relative inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700 transition ease-in-out duration-150">
+              <button @click="previousPage"  :disabled="page <= 1"  :class="{ 'opacity-50 cursor-not-allowed': page <= 1 }" class="relative inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700 transition ease-in-out duration-150">
                 Previous
-              </a>
-              <a href="track/products?page=1" class="ml-3 relative inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700 transition ease-in-out duration-150">
+              </button>
+              <button @click="nextPage" :disabled="totalTracked < limit"  :class="{ 'opacity-50 cursor-not-allowed': totalTracked < limit }" class="ml-3 relative inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700 transition ease-in-out duration-150">
                 Next
-              </a>
+              </button>
             </div>
           </nav>
         </div>
