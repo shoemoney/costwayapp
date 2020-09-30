@@ -130,10 +130,10 @@
           </ul>
           <nav class="bg-white px-4 py-3 flex items-center justify-between border-t border-cool-gray-200">
             <div class="flex-1 flex justify-between">
-              <a href="#" class="relative inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700 transition ease-in-out duration-150">
+              <a href="track/products?page=1" class="relative inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700 transition ease-in-out duration-150">
                 Previous
               </a>
-              <a href="#" class="ml-3 relative inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700 transition ease-in-out duration-150">
+              <a href="track/products?page=1" class="ml-3 relative inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700 transition ease-in-out duration-150">
                 Next
               </a>
             </div>
@@ -208,12 +208,12 @@
                     </p>
                   </div>
                   <div class="flex-1 flex justify-between sm:justify-end">
-                    <a href="#" class="relative inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700 transition ease-in-out duration-150">
+                    <button @click="previousPage" class="relative inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700 transition ease-in-out duration-150">
                       Previous
-                    </a>
-                    <a href="#" class="ml-3 relative inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700 transition ease-in-out duration-150">
+                    </button>
+                    <button @click="nextPage" class="ml-3 relative inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700 transition ease-in-out duration-150">
                       Next
-                    </a>
+                    </button>
                   </div>
                 </nav>
               </div>
@@ -240,7 +240,9 @@ export default {
     outOfStockCount: Number,
   },
   data() {
-    return {};
+    return {
+      page: 1
+    };
   },
   methods: {
     productDetails(product) {
@@ -248,12 +250,29 @@ export default {
     },
     openTrackProductModal() {
         this.$modal.show("track-product-modal");
+    },
+     previousPage() {
+       if (this.page < 1) {
+         location.href = `?page=1`
+       }
+       location.href = `?page=${this.page-1}`
+    },
+    nextPage() {
+      console.log(this.page++);
+     location.href = `?page=${this.page++}`
     }
   },
   computed: {
     products() {
       return this.getProducts;
     }
+  },
+  mounted() {
+    
+      let urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has('page')) {
+        this.page = urlParams.get('page');
+      }
   }
 };
 </script>

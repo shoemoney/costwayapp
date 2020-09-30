@@ -508,7 +508,9 @@ __webpack_require__.r(__webpack_exports__);
     outOfStockCount: Number
   },
   data: function data() {
-    return {};
+    return {
+      page: 1
+    };
   },
   methods: {
     productDetails: function productDetails(product) {
@@ -516,11 +518,29 @@ __webpack_require__.r(__webpack_exports__);
     },
     openTrackProductModal: function openTrackProductModal() {
       this.$modal.show("track-product-modal");
+    },
+    previousPage: function previousPage() {
+      if (this.page < 1) {
+        location.href = "?page=1";
+      }
+
+      location.href = "?page=".concat(this.page - 1);
+    },
+    nextPage: function nextPage() {
+      console.log(this.page++);
+      location.href = "?page=".concat(this.page++);
     }
   },
   computed: {
     products: function products() {
       return this.getProducts;
+    }
+  },
+  mounted: function mounted() {
+    var urlParams = new URLSearchParams(window.location.search);
+
+    if (urlParams.has('page')) {
+      this.page = urlParams.get('page');
     }
   }
 });
@@ -1592,7 +1612,42 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _vm._m(3)
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "flex-1 flex justify-between sm:justify-end"
+                                  },
+                                  [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "relative inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700 transition ease-in-out duration-150",
+                                        on: { click: _vm.previousPage }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                      Previous\n                    "
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "ml-3 relative inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700 transition ease-in-out duration-150",
+                                        on: { click: _vm.nextPage }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                      Next\n                    "
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
                               ]
                             )
                           ]
@@ -1647,7 +1702,7 @@ var staticRenderFns = [
             {
               staticClass:
                 "relative inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700 transition ease-in-out duration-150",
-              attrs: { href: "#" }
+              attrs: { href: "track/products?page=1" }
             },
             [_vm._v("\n                Previous\n              ")]
           ),
@@ -1657,7 +1712,7 @@ var staticRenderFns = [
             {
               staticClass:
                 "ml-3 relative inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700 transition ease-in-out duration-150",
-              attrs: { href: "#" }
+              attrs: { href: "track/products?page=1" }
             },
             [_vm._v("\n                Next\n              ")]
           )
@@ -1708,36 +1763,6 @@ var staticRenderFns = [
         )
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "flex-1 flex justify-between sm:justify-end" },
-      [
-        _c(
-          "a",
-          {
-            staticClass:
-              "relative inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700 transition ease-in-out duration-150",
-            attrs: { href: "#" }
-          },
-          [_vm._v("\n                      Previous\n                    ")]
-        ),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass:
-              "ml-3 relative inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700 transition ease-in-out duration-150",
-            attrs: { href: "#" }
-          },
-          [_vm._v("\n                      Next\n                    ")]
-        )
-      ]
-    )
   }
 ]
 render._withStripped = true
