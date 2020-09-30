@@ -18,8 +18,8 @@
           </button>
         </div>
         <div class="flex-shrink-0 flex items-center">
-          <img class="block lg:hidden h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-on-white.svg" alt="Workflow logo">
-          <img class="hidden lg:block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-on-white.svg" alt="Workflow logo">
+          <img class="block lg:hidden h-12 w-auto" src="{{asset('img/logo.png')}}" alt="Workflow logo">
+          <img class="hidden lg:block h-12 w-auto" src="{{asset('img/logo.png')}}" alt="Workflow logo">
         </div>
         <div class="hidden md:ml-6 md:flex">
           <a href="#" class="inline-flex items-center px-1 pt-1 border-b-2 border-indigo-500 text-sm leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out">
