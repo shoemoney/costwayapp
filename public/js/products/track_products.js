@@ -509,7 +509,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      page: 1
+      page: 1,
+      limit: 15
     };
   },
   methods: {
@@ -590,12 +591,9 @@ var render = function() {
         _c("div", { staticClass: "mt-6 mx-6" }, [
           _c(
             "div",
-            {
-              staticClass:
-                "bg-white shadow overflow-hidden sm:rounded-lg m-auto w-full "
-            },
+            { staticClass: "bg-white shadow overflow-hidden m-auto w-full " },
             [
-              _c("div", { staticClass: "w-full flex rounded-md shadow-sm" }, [
+              _c("div", { staticClass: "w-full flex shadow-sm" }, [
                 _c(
                   "span",
                   {
@@ -651,7 +649,7 @@ var render = function() {
                         "button",
                         {
                           staticClass:
-                            "relative inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150",
+                            "relative inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium text-white bg-indigo-600 shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150",
                           attrs: { type: "button" },
                           on: { click: _vm.trackProduct }
                         },
@@ -876,9 +874,7 @@ var render = function() {
                         [
                           _c(
                             "ul",
-                            {
-                              staticClass: "border border-gray-200 rounded-md"
-                            },
+                            { staticClass: "border border-gray-200" },
                             _vm._l(_vm.product.images, function(image, index) {
                               return _c(
                                 "li",
@@ -1576,19 +1572,19 @@ var render = function() {
                                       _vm._v(
                                         "\n                      Showing\n                      "
                                       ),
-                                      _c(
-                                        "span",
-                                        { staticClass: "font-medium" },
-                                        [_vm._v("1")]
-                                      ),
+                                      _c("span", {
+                                        staticClass: "font-medium",
+                                        domProps: {
+                                          textContent: _vm._s(_vm.totalTracked)
+                                        }
+                                      }),
                                       _vm._v(
                                         "\n                      to\n                      "
                                       ),
-                                      _c(
-                                        "span",
-                                        { staticClass: "font-medium" },
-                                        [_vm._v("10")]
-                                      ),
+                                      _c("span", {
+                                        staticClass: "font-medium",
+                                        domProps: { textContent: _vm._s(15) }
+                                      }),
                                       _vm._v(
                                         "\n                      of\n                      "
                                       ),
@@ -1624,6 +1620,11 @@ var render = function() {
                                       {
                                         staticClass:
                                           "relative inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700 transition ease-in-out duration-150",
+                                        class: {
+                                          "opacity-50 cursor-not-allowed":
+                                            _vm.page <= 1
+                                        },
+                                        attrs: { disabled: _vm.page <= 1 },
                                         on: { click: _vm.previousPage }
                                       },
                                       [
@@ -1638,6 +1639,13 @@ var render = function() {
                                       {
                                         staticClass:
                                           "ml-3 relative inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700 transition ease-in-out duration-150",
+                                        class: {
+                                          "opacity-50 cursor-not-allowed":
+                                            _vm.totalTracked < _vm.limit
+                                        },
+                                        attrs: {
+                                          disabled: _vm.totalTracked < _vm.limit
+                                        },
                                         on: { click: _vm.nextPage }
                                       },
                                       [

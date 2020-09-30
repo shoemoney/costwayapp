@@ -40,7 +40,7 @@ class TrackedProductController extends Controller
             'product.metrics',
         )
             ->where('user_id', auth()->user()->id)
-            ->paginate();
+            ->paginate(15);
 
         return view('trackedproducts.index', [
             'products' => collect($products->all()),

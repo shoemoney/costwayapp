@@ -199,19 +199,19 @@
                   <div class="hidden sm:block">
                     <p class="text-sm leading-5 text-cool-gray-700">
                       Showing
-                      <span class="font-medium">1</span>
+                      <span class="font-medium" v-text="totalTracked"></span>
                       to
-                      <span class="font-medium">10</span>
+                      <span class="font-medium" v-text="15"></span>
                       of
                       <span class="font-medium"><span v-text="totalTracked"></span></span>
                       results
                     </p>
                   </div>
                   <div class="flex-1 flex justify-between sm:justify-end">
-                    <button @click="previousPage" class="relative inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700 transition ease-in-out duration-150">
+                    <button @click="previousPage"  :disabled="page <= 1"  :class="{ 'opacity-50 cursor-not-allowed': page <= 1 }" class="relative inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700 transition ease-in-out duration-150">
                       Previous
                     </button>
-                    <button @click="nextPage" class="ml-3 relative inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700 transition ease-in-out duration-150">
+                    <button @click="nextPage" :disabled="totalTracked < limit"  :class="{ 'opacity-50 cursor-not-allowed': totalTracked < limit }" class="ml-3 relative inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700 transition ease-in-out duration-150">
                       Next
                     </button>
                   </div>
@@ -241,7 +241,8 @@ export default {
   },
   data() {
     return {
-      page: 1
+      page: 1,
+      limit: 15
     };
   },
   methods: {

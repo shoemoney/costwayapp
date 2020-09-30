@@ -3,9 +3,9 @@
       <main class="flex-1 relative pb-8 z-0 overflow-y-auto" style="height:550px;">
         <div class="mt-6 mx-6">
           <div
-            class="bg-white shadow overflow-hidden sm:rounded-lg m-auto w-full "
+            class="bg-white shadow overflow-hidden m-auto w-full "
           >
-            <div class="w-full flex rounded-md shadow-sm">
+            <div class="w-full flex shadow-sm">
             <span class="p-3 inline-flex items-center px-3 rounded-none border-solid text-gray-500 sm:text-sm">
               https://costway.co.uk/
             </span>
@@ -19,7 +19,7 @@
 
             <div class="px-4 py-5 border-b border-gray-200 sm:px-6">
               <h3 class="text-lg leading-6 font-medium text-gray-900">Product Information</h3>
-               <button v-if="!_.isEmpty(product)" type="button" @click="trackProduct" class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
+               <button v-if="!_.isEmpty(product)" type="button" @click="trackProduct" class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium text-white bg-indigo-600 shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
                 <svg class="-ml-1 mr-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
                 </svg>
@@ -72,7 +72,7 @@
                 >
                   <dt class="text-sm leading-5 font-medium text-gray-500">Attachments</dt>
                   <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                    <ul class="border border-gray-200 rounded-md">
+                    <ul class="border border-gray-200">
                       <li
                         class="pl-3 pr-4 py-3 flex items-center justify-between text-sm leading-5"
                         v-for="(image, index) in product.images"
