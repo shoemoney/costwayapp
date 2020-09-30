@@ -40,10 +40,10 @@ class TrackedProductController extends Controller
             'product.metrics',
         )
             ->where('user_id', auth()->user()->id)
-            ->get();
-    
+            ->paginate();
+
         return view('trackedproducts.index', [
-            'products' => $products,
+            'products' => collect($products->all()),
             'totalTracked' => $products->count(),
             'totalInStock' => app(TrackedProduct::class)->InStockCount(),
             'totaloutOfStock' => app(TrackedProduct::class)->OutOfStockCount(),
