@@ -23,6 +23,6 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('import/product', 'ImportController');
 
-    Route::resource('track/products', 'TrackedProductController');
+    Route::resource('tracked/products', 'TrackedProductController');
     Route::get('search/tracked/products/{value}', 'TrackedProductController@search');
 });

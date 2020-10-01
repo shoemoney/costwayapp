@@ -22,9 +22,12 @@
           <img class="hidden lg:block h-12 w-auto" src="{{asset('img/logo.png')}}" alt="Workflow logo">
         </div>
         <div class="hidden md:ml-6 md:flex">
-          <a href="#" class="inline-flex items-center px-1 pt-1 border-b-2 border-indigo-500 text-sm leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out">
+          <a href="{{ url(config('app.url') . 'tracked/products')}}" class="inline-flex items-center px-1 pt-1 border-b-2 border-indigo-500 text-sm leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out">
             Tracked Products
           </a> 
+          <a href="{{ url(config('app.url')) . 'costway/product' }}" class="inline-flex items-center px-1 pt-1 text-sm leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out">
+            Track Product
+          </a>
         </div>
       </div>
       <div class="flex items-center">
