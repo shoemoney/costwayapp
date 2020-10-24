@@ -578,7 +578,7 @@ class Mailable implements MailableContract, Renderable
     {
         foreach ($this->addressesToArray($address, $name) as $recipient) {
             $recipient = $this->normalizeRecipient($recipient);
-
+            
             $this->{$property}[] = [
                 'name' => $recipient->name ?? null,
                 'address' => $recipient->email,

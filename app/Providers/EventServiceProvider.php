@@ -46,7 +46,7 @@ class EventServiceProvider extends ServiceProvider
         ],
 
         'App\Events\ProductRemoved' => [
-            'App\Listeners\SendProductRemovedEmail',
+           // 'App\Listeners\SendProductRemovedEmail',
             'App\Listeners\ProductRemovedActivity',
         ],
     ];
